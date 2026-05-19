@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GIS Portfolio — Visual Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1f2a44;
+    --navy-deep: #141c30;
+    --slate: #475569;
+    --slate-light: #94a3b8;
+    --accent: #c99b3f;
+    --accent-deep: #a07d2f;
+    --bg: #f7f5f0;
+    --bg-card: #ffffff;
+    --bg-soft: #ecebe4;
+    --rule: #d6d2c7;
+    --ink: #1a1a1a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter Tight', -apple-system, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* ===== Mockup chrome — labels for "Google Sites block" ===== */
+  .site-label {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy-deep);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    border-bottom: 1px solid var(--accent);
+    text-align: center;
+  }
+
+  .block-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--accent);
+    color: var(--navy-deep);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    z-index: 5;
+  }
+
+  /* ===== Nav ===== */
+  nav.top-nav {
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    position: relative;
+  }
+
+  .nav-brand {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+
+  .nav-brand .accent { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--slate);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative;
+    min-height: 520px;
+    background:
+      linear-gradient(135deg, rgba(20,28,48,0.85) 0%, rgba(31,42,68,0.65) 60%, rgba(201,155,63,0.35) 100%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 2px, transparent 2px 12px),
+      radial-gradient(circle at 20% 30%, #2a3a5a 0%, #141c30 70%);
+    color: white;
+    padding: 96px 48px 80px;
+    overflow: hidden;
+  }
+
+  /* Decorative topo lines */
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 75% 60%, transparent 0, transparent 80px, rgba(201,155,63,0.08) 80px, rgba(201,155,63,0.08) 82px, transparent 82px, transparent 140px, rgba(201,155,63,0.06) 140px, rgba(201,155,63,0.06) 142px, transparent 142px, transparent 210px, rgba(201,155,63,0.05) 210px, rgba(201,155,63,0.05) 212px, transparent 212px),
+      radial-gradient(ellipse at 20% 80%, transparent 0, transparent 60px, rgba(255,255,255,0.04) 60px, rgba(255,255,255,0.04) 62px, transparent 62px, transparent 130px, rgba(255,255,255,0.03) 130px, rgba(255,255,255,0.03) 132px, transparent 132px);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(56px, 9vw, 112px);
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 .italic { font-style: italic; color: var(--accent); font-weight: 400; }
+
+  .hero-tagline {
+    font-size: 19px;
+    color: rgba(255,255,255,0.78);
+    max-width: 620px;
+    line-height: 1.5;
+  }
+
+  .hero-placeholder {
+    margin-top: 36px;
+    font-style: italic;
+    color: rgba(201,155,63,0.7);
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ===== Section base ===== */
+  section.page {
+    padding: 96px 48px;
+    position: relative;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-marker {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 44px;
+    color: var(--navy);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .section-intro {
+    font-size: 18px;
+    color: var(--slate);
+    max-width: 720px;
+    margin-bottom: 56px;
+    line-height: 1.6;
+  }
+
+  /* ===== Featured strip ===== */
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 16px;
+  }
+
+  .featured-card {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+
+  .featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(20,28,48,0.12);
+  }
+
+  .featured-img {
+    aspect-ratio: 4/3;
+    background:
+      linear-gradient(135deg, rgba(31,42,68,0.9) 0%, rgba(201,155,63,0.4) 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.6);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  .featured-img.flood {
+    background:
+      linear-gradient(135deg, rgba(31,42,68,0.85) 0%, rgba(70,130,180,0.5) 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px);
+  }
+
+  .featured-img.third {
+    background:
+      linear-gradient(135deg, rgba(74,55,40,0.85) 0%, rgba(201,155,63,0.55) 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px);
+  }
+
+  .featured-body {
+    padding: 20px 22px 24px;
+  }
+
+  .featured-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+
+  .featured-caption {
+    font-size: 14px;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+
+  /* ===== About ===== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .about-image {
+    aspect-ratio: 3/4;
+    background:
+      linear-gradient(135deg, rgba(31,42,68,0.7) 0%, rgba(201,155,63,0.3) 100%),
+      repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 14px);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .about-body h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--navy);
+    margin: 32px 0 12px;
+  }
+
+  .about-body h3:first-child { margin-top: 0; }
+
+  .about-body p {
+    color: var(--slate);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  .about-body ul {
+    list-style: none;
+    margin-top: 12px;
+  }
+
+  .about-body ul li {
+    color: var(--slate);
+    line-height: 1.7;
+    padding-left: 24px;
+    position: relative;
+  }
+
+  .about-body ul li::before {
+    content: "↳";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  .placeholder-text {
+    color: var(--slate-light);
+    font-style: italic;
+  }
+
+  /* ===== Map entries ===== */
+  .map-entry {
+    margin-bottom: 96px;
+    position: relative;
+  }
+
+  .map-entry:last-child { margin-bottom: 0; }
+
+  .map-entry-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 12px;
+  }
+
+  .map-entry-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 32px;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+  }
+
+  .map-image {
+    aspect-ratio: 16/9;
+    background:
+      linear-gradient(135deg, rgba(31,42,68,0.92) 0%, rgba(201,155,63,0.5) 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 12px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 12px);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.55);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .map-image.flood {
+    background:
+      linear-gradient(135deg, rgba(31,42,68,0.88) 0%, rgba(70,130,180,0.55) 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 12px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 12px);
+  }
+
+  .map-image.empty {
+    background:
+      repeating-linear-gradient(0deg, var(--bg-soft) 0 1px, var(--bg) 1px 12px),
+      repeating-linear-gradient(90deg, var(--bg-soft) 0 1px, var(--bg) 1px 12px);
+    color: var(--slate-light);
+  }
+
+  .map-fields {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .map-field-label,
+  .map-field-value {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .map-field-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-deep);
+    padding-right: 24px;
+  }
+
+  .map-field-value {
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .map-field-value.placeholder {
+    color: var(--slate-light);
+    font-style: italic;
+  }
+
+  /* ===== Workflow ===== */
+  .workflow-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px 64px;
+    margin-top: 24px;
+  }
+
+  .workflow-step {
+    border-top: 2px solid var(--accent);
+    padding-top: 24px;
+  }
+
+  .workflow-step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+  }
+
+  .workflow-step h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .workflow-step p {
+    color: var(--slate);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  /* ===== Contact ===== */
+  .contact {
+    background: var(--navy-deep);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(201,155,63,0.18) 0%, transparent 50%),
+      radial-gradient(circle at 15% 90%, rgba(70,130,180,0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .contact .container { position: relative; z-index: 1; }
+
+  .contact .section-num { color: var(--accent); }
+
+  .contact .section-line { background: rgba(255,255,255,0.15); }
+
+  .contact .section-title {
+    color: white;
+    font-size: clamp(48px, 6vw, 72px);
+  }
+
+  .contact .section-title .italic {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .contact-item {
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 28px 32px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .contact-item:hover {
+    border-color: var(--accent);
+    background: rgba(201,155,63,0.05);
+  }
+
+  .contact-item-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .contact-item-value {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    color: white;
+    font-weight: 500;
+  }
+
+  .contact-item-value.placeholder {
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.4);
+    padding: 32px 48px;
+    text-align: center;
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 860px) {
+    nav.top-nav { flex-direction: column; gap: 12px; padding: 16px 24px; }
+    .nav-links { gap: 18px; flex-wrap: wrap; justify-content: center; }
+    .hero { padding: 64px 24px 56px; }
+    section.page { padding: 64px 24px; }
+    .featured-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    .map-fields { grid-template-columns: 1fr; }
+    .map-field-label { padding-bottom: 4px; border-bottom: none; }
+    .map-field-value { padding-top: 0; padding-bottom: 18px; }
+    .workflow-grid { grid-template-columns: 1fr; gap: 32px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .map-entry-title { font-size: 26px; }
+    .section-title { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="site-label">↓ Visual mockup — replicate this layout in Google Sites using its built-in blocks ↓</div>
+
+<!-- ============ NAV ============ -->
+<nav class="top-nav">
+  <div class="nav-brand">GIS<span class="accent">.</span>Portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#maps">Maps</a></li>
+    <li><a href="#workflow">Workflow</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header id="home" class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">— Portfolio · GIS &amp; Spatial Analysis</div>
+    <h1>GIS<br/><span class="italic">Portfolio</span></h1>
+    <p class="hero-tagline">
+      <span class="placeholder-text" style="color: rgba(201,155,63,0.85);">[Your Name]</span> — geospatial work in risk modeling, public-health geography, and reproducible spatial pipelines.
+    </p>
+    <div class="hero-placeholder">// google sites: large cover banner block + overlay text</div>
+  </div>
+</header>
+
+<!-- ============ FEATURED ============ -->
+<section class="page" style="padding-top: 80px;">
+  <div class="container">
+    <div class="section-marker">
+      <span class="section-num">PAGE 01</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Featured work</h2>
+    <p class="section-intro">
+      Three recent maps. Click any thumbnail to see the full project on the Maps page.
+    </p>
+
+    <div class="featured-grid">
+      <div class="featured-card">
+        <div class="featured-img">[ hurricane michael map ]</div>
+        <div class="featured-body">
+          <div class="featured-title">Hurricane Michael — FL Panhandle</div>
+          <div class="featured-caption">Hazus 7.0 hurricane wind damage assessment across three Panhandle counties.</div>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="featured-img flood">[ hamilton county flood ]</div>
+        <div class="featured-body">
+          <div class="featured-title">Hamilton County Flood Risk</div>
+          <div class="featured-caption">Riverine flood loss estimation for Central Indiana using Hazus Pro.</div>
+        </div>
+      </div>
+      <div class="featured-card">
+        <div class="featured-img third">[ third featured map ]</div>
+        <div class="featured-body">
+          <div class="featured-title placeholder-text">[Third featured map]</div>
+          <div class="featured-caption placeholder-text">One-line caption describing what the map shows and why it matters.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="page">
+  <div class="container">
+    <div class="section-marker">
+      <span class="section-num">PAGE 02</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">About</h2>
+
+    <div class="about-grid">
+      <div class="about-image">[ headshot or symbolic image ]</div>
+      <div class="about-body">
+        <h3>Who I am</h3>
+        <p>
+          <span class="placeholder-text">[Your Name]</span> is a <span class="placeholder-text">[role / student status]</span> focused on the intersection of geospatial analysis, risk modeling, and data engineering. I build maps that turn complex public-data sources — Census, CDC, FEMA, CMS — into clear answers for decision-makers.
+        </p>
+
+        <h3>What I work on</h3>
+        <ul>
+          <li>Natural hazard risk modeling using Hazus and FEMA data products</li>
+          <li>Demographic and public-health geography using ACS PUMS, BRFSS, and CDC datasets</li>
+          <li>Reproducible spatial pipelines from raw public data to audience-ready cartography</li>
+        </ul>
+
+        <h3>Tools</h3>
+        <p>ArcGIS Pro · Hazus 7.0 / Hazus Pro · QGIS · Python (arcpy, pandas, geopandas) · SQL Server · Git</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAPS ============ -->
+<section id="maps" class="page" style="background: var(--bg-soft);">
+  <div class="container">
+    <div class="section-marker">
+      <span class="section-num">PAGE 03</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Maps &amp; projects</h2>
+    <p class="section-intro">
+      Each entry follows the same structure: image first, then the question it answered, the data sources, the method, and the takeaway.
+    </p>
+
+    <!-- MAP 1 -->
+    <div class="map-entry">
+      <div class="map-entry-num">MAP 01 / HAZUS · HURRICANE</div>
+      <h3 class="map-entry-title">Hurricane Michael — Damage &amp; Loss Assessment, Florida Panhandle</h3>
+      <div class="map-image">[ map image — full width 16:9 ]</div>
+      <div class="map-fields">
+        <div class="map-field-label">Region</div>
+        <div class="map-field-value">Gadsden, Leon, and Wakulla counties · Florida Panhandle · county-level aggregation</div>
+
+        <div class="map-field-label">Software</div>
+        <div class="map-field-value">Hazus 7.0 (SQL Server backend) · Python (arcpy) · ArcGIS Pro</div>
+
+        <div class="map-field-label">Question</div>
+        <div class="map-field-value">How was building damage and economic loss distributed across the three Panhandle counties most affected by Hurricane Michael, and which occupancy classes absorbed the most loss?</div>
+
+        <div class="map-field-label">Data sources</div>
+        <div class="map-field-value">Hazus 7.0 default hurricane scenario tables (huSummaryDamage, huSummaryLoss), hzDemographicsB inventory, FEMA wind-field inputs.</div>
+
+        <div class="map-field-label">Method</div>
+        <div class="map-field-value">Queried Hazus SQL Server tables to extract damage state counts and dollar loss by general building type and occupancy. Joined results to county geometry in ArcGIS Pro. Applied the 1000x scaling factor on loss values and aggregated to county totals.</div>
+
+        <div class="map-field-label">Key finding</div>
+        <div class="map-field-value placeholder">[Replace with your headline number — e.g., total estimated building loss reached $X million, with residential occupancy accounting for roughly Y%.]</div>
+
+        <div class="map-field-label">What it shows</div>
+        <div class="map-field-value">Choropleth of total economic loss by county, with proportional symbols overlaid showing the count of moderately-to-completely damaged buildings.</div>
+      </div>
+    </div>
+
+    <!-- MAP 2 -->
+    <div class="map-entry">
+      <div class="map-entry-num">MAP 02 / HAZUS · FLOOD</div>
+      <h3 class="map-entry-title">Hamilton County Flood Risk — Central Indiana</h3>
+      <div class="map-image flood">[ map image — full width 16:9 ]</div>
+      <div class="map-fields">
+        <div class="map-field-label">Region</div>
+        <div class="map-field-value">Hamilton County, Indiana · census-block-group level</div>
+
+        <div class="map-field-label">Software</div>
+        <div class="map-field-value">Hazus Pro (riverine flood module) · ArcGIS Pro · Python</div>
+
+        <div class="map-field-label">Question</div>
+        <div class="map-field-value">Which neighborhoods in Hamilton County face the greatest expected annualized flood loss, and how does that risk overlap with socially vulnerable populations?</div>
+
+        <div class="map-field-label">Data sources</div>
+        <div class="map-field-value">Hazus Pro default flood depth grids · FEMA National Risk Index · ACS 5-year demographic estimates · county parcel inventory.</div>
+
+        <div class="map-field-label">Method</div>
+        <div class="map-field-value">Ran a 100-year riverine flood scenario in Hazus Pro. Exported building-level loss estimates, aggregated to block group, and joined to a social vulnerability index built from ACS variables. Symbolized using a bivariate scheme (loss × vulnerability).</div>
+
+        <div class="map-field-label">Key finding</div>
+        <div class="map-field-value placeholder">[Replace with your headline number — e.g., X block groups fall in the highest quartile of both estimated flood loss and social vulnerability.]</div>
+
+        <div class="map-field-label">What it shows</div>
+        <div class="map-field-value">Bivariate choropleth showing estimated flood loss on one axis and social vulnerability on the other. The darkest corner of the legend flags block groups warranting priority outreach.</div>
+      </div>
+    </div>
+
+    <!-- MAP 3 — placeholder -->
+    <div class="map-entry">
+      <div class="map-entry-num">MAP 03 / [CATEGORY]</div>
+      <h3 class="map-entry-title placeholder-text">[Map Title — replace]</h3>
+      <div class="map-image empty">[ add map image ]</div>
+      <div class="map-fields">
+        <div class="map-field-label">Region</div>
+        <div class="map-field-value placeholder">[Geographic extent and unit of analysis]</div>
+
+        <div class="map-field-label">Software</div>
+        <div class="map-field-value placeholder">[ArcGIS Pro · QGIS · Hazus · Python · etc.]</div>
+
+        <div class="map-field-label">Question</div>
+        <div class="map-field-value placeholder">[What question does this map answer? One sentence.]</div>
+
+        <div class="map-field-label">Data sources</div>
+        <div class="map-field-value placeholder">[List the public or proprietary datasets used.]</div>
+
+        <div class="map-field-label">Method</div>
+        <div class="map-field-value placeholder">[2–3 sentence summary of the analytical or cartographic workflow.]</div>
+
+        <div class="map-field-label">Key finding</div>
+        <div class="map-field-value placeholder">[The single most important takeaway a viewer should leave with.]</div>
+
+        <div class="map-field-label">What it shows</div>
+        <div class="map-field-value placeholder">[Describe the visual — symbology, legend, what a reader sees first.]</div>
+      </div>
+    </div>
+
+    <!-- MAP 4 — placeholder -->
+    <div class="map-entry">
+      <div class="map-entry-num">MAP 04 / [CATEGORY]</div>
+      <h3 class="map-entry-title placeholder-text">[Map Title — replace]</h3>
+      <div class="map-image empty">[ add map image ]</div>
+      <div class="map-fields">
+        <div class="map-field-label">Region</div>
+        <div class="map-field-value placeholder">[Geographic extent and unit of analysis]</div>
+
+        <div class="map-field-label">Software</div>
+        <div class="map-field-value placeholder">[Tools used]</div>
+
+        <div class="map-field-label">Question</div>
+        <div class="map-field-value placeholder">[Driving question]</div>
+
+        <div class="map-field-label">Data sources</div>
+        <div class="map-field-value placeholder">[Datasets]</div>
+
+        <div class="map-field-label">Method</div>
+        <div class="map-field-value placeholder">[Workflow summary]</div>
+
+        <div class="map-field-label">Key finding</div>
+        <div class="map-field-value placeholder">[Headline takeaway]</div>
+
+        <div class="map-field-label">What it shows</div>
+        <div class="map-field-value placeholder">[Visual description]</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ WORKFLOW ============ -->
+<section id="workflow" class="page">
+  <div class="container">
+    <div class="section-marker">
+      <span class="section-num">PAGE 04</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Workflow &amp; methods</h2>
+    <p class="section-intro">
+      The general workflow behind the maps on this site, for visitors who want to understand the methodology before evaluating any single project.
+    </p>
+
+    <div class="workflow-grid">
+      <div class="workflow-step">
+        <div class="workflow-step-num">01 / SOURCE</div>
+        <h3>Source data</h3>
+        <p>All maps are built from publicly available or institutionally licensed datasets: FEMA Hazus and the National Risk Index, Census ACS and PUMS files, CDC datasets including BRFSS and WONDER, and state and local geospatial portals for parcel, hydrography, and boundary layers.</p>
+      </div>
+
+      <div class="workflow-step">
+        <div class="workflow-step-num">02 / PROCESS</div>
+        <h3>Processing</h3>
+        <p>Data are pulled, cleaned, and joined using Python (pandas, geopandas, arcpy) and SQL. For Hazus-based maps, the SQL Server backend is queried directly to extract damage and loss tables, which are then joined to spatial layers in ArcGIS Pro.</p>
+      </div>
+
+      <div class="workflow-step">
+        <div class="workflow-step-num">03 / CARTOGRAPHY</div>
+        <h3>Cartography</h3>
+        <p>Maps are finalized in ArcGIS Pro (or QGIS where appropriate). Symbology choices favor accessible color schemes and clear hierarchy: one primary variable per map, supporting context kept light.</p>
+      </div>
+
+      <div class="workflow-step">
+        <div class="workflow-step-num">04 / REPRODUCIBILITY</div>
+        <h3>Reproducibility</h3>
+        <p>Where possible, processing steps are scripted rather than clicked. Notebooks and scripts behind the maps are available on request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="page contact">
+  <div class="container">
+    <div class="section-marker">
+      <span class="section-num">PAGE 05</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="section-title">Let's talk <span class="italic">maps.</span></h2>
+    <p class="section-intro" style="color: rgba(255,255,255,0.7);">
+      Open to geospatial collaborations, risk and hazard work, and conversations about data infrastructure for public-interest analysis.
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-item-label">Email</div>
+        <div class="contact-item-value placeholder">[your email address]</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">LinkedIn</div>
+        <div class="contact-item-value placeholder">[your linkedin profile]</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">GitHub</div>
+        <div class="contact-item-value placeholder">[your github profile]</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-label">Location</div>
+        <div class="contact-item-value placeholder">[city, state — optional]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © [YEAR] [YOUR NAME] · GIS PORTFOLIO · ALL MAPS BY THE AUTHOR
+</footer>
+
+</body>
+</html>
