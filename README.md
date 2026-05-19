@@ -1,6 +1,6 @@
 # GIS Portfolio
 
-A collection of geospatial analyses, risk assessments, and cartographic work built with ArcGIS Pro, Hazus, and related tools. This portfolio documents how raw public-data sources (Census, FEMA, CDC, USGS) move through a reproducible workflow into finished maps that answer specific questions for decision-makers.
+A collection of geospatial analyses, risk assessments, and cartographic work built with ArcGIS Pro, QGIS, Hazus 7.0, and related tools. This portfolio documents how raw public-data sources (Census, FEMA, CDC, USGS) move through a reproducible workflow into finished maps that answer specific questions for decision-makers.
 
 **Live site:** [peter-aina.github.io/gis-portfolio](https://peter-aina.github.io/gis-portfolio/)
 
