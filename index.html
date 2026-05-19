@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>GIS Portfolio — Visual Mockup</title>
+<title>GIS Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -23,7 +23,6 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -34,38 +33,6 @@
     font-size: 16px;
   }
 
-  /* ===== Mockup chrome — labels for "Google Sites block" ===== */
-  .site-label {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: var(--navy-deep);
-    color: var(--accent);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 8px 24px;
-    border-bottom: 1px solid var(--accent);
-    text-align: center;
-  }
-
-  .block-tag {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    background: var(--accent);
-    color: var(--navy-deep);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 2px;
-    z-index: 5;
-  }
-
   /* ===== Nav ===== */
   nav.top-nav {
     background: var(--bg);
@@ -74,7 +41,9 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
 
   .nav-brand {
@@ -84,24 +53,16 @@
     color: var(--navy);
     letter-spacing: -0.01em;
   }
-
   .nav-brand .accent { color: var(--accent); }
 
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
+  .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a {
     color: var(--slate);
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
-    letter-spacing: 0.02em;
     transition: color 0.2s ease;
   }
-
   .nav-links a:hover { color: var(--accent); }
 
   /* ===== Hero ===== */
@@ -117,7 +78,6 @@
     overflow: hidden;
   }
 
-  /* Decorative topo lines */
   .hero::before {
     content: "";
     position: absolute;
@@ -128,12 +88,7 @@
     pointer-events: none;
   }
 
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
+  .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
 
   .hero-eyebrow {
     font-family: 'JetBrains Mono', monospace;
@@ -152,7 +107,6 @@
     letter-spacing: -0.03em;
     margin-bottom: 28px;
   }
-
   .hero h1 .italic { font-style: italic; color: var(--accent); font-weight: 400; }
 
   .hero-tagline {
@@ -162,13 +116,7 @@
     line-height: 1.5;
   }
 
-  .hero-placeholder {
-    margin-top: 36px;
-    font-style: italic;
-    color: rgba(201,155,63,0.7);
-    font-size: 14px;
-    font-family: 'JetBrains Mono', monospace;
-  }
+  .placeholder-text { color: rgba(201,155,63,0.85); }
 
   /* ===== Section base ===== */
   section.page {
@@ -176,11 +124,7 @@
     position: relative;
     border-bottom: 1px solid var(--rule);
   }
-
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+  .container { max-width: 1100px; margin: 0 auto; }
 
   .section-marker {
     display: flex;
@@ -195,12 +139,7 @@
     color: var(--accent);
     letter-spacing: 0.2em;
   }
-
-  .section-line {
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
+  .section-line { flex: 1; height: 1px; background: var(--rule); }
 
   .section-title {
     font-family: 'Fraunces', serif;
@@ -219,7 +158,7 @@
     line-height: 1.6;
   }
 
-  /* ===== Featured strip ===== */
+  /* ===== Featured strip on landing ===== */
   .featured-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -232,49 +171,28 @@
     border: 1px solid var(--rule);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
   }
-
   .featured-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(20,28,48,0.12);
   }
 
-  .featured-img {
+  .featured-img-wrap {
     aspect-ratio: 4/3;
-    background:
-      linear-gradient(135deg, rgba(31,42,68,0.9) 0%, rgba(201,155,63,0.4) 100%),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px),
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.6);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    position: relative;
+    overflow: hidden;
+    background: var(--bg-soft);
+  }
+  .featured-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
-  .featured-img.flood {
-    background:
-      linear-gradient(135deg, rgba(31,42,68,0.85) 0%, rgba(70,130,180,0.5) 100%),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px),
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px);
-  }
-
-  .featured-img.third {
-    background:
-      linear-gradient(135deg, rgba(74,55,40,0.85) 0%, rgba(201,155,63,0.55) 100%),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px),
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 8px);
-  }
-
-  .featured-body {
-    padding: 20px 22px 24px;
-  }
-
+  .featured-body { padding: 20px 22px 24px; }
   .featured-title {
     font-family: 'Fraunces', serif;
     font-weight: 600;
@@ -283,12 +201,7 @@
     margin-bottom: 8px;
     line-height: 1.25;
   }
-
-  .featured-caption {
-    font-size: 14px;
-    color: var(--slate);
-    line-height: 1.5;
-  }
+  .featured-caption { font-size: 14px; color: var(--slate); line-height: 1.5; }
 
   /* ===== About ===== */
   .about-grid {
@@ -321,27 +234,15 @@
     color: var(--navy);
     margin: 32px 0 12px;
   }
-
   .about-body h3:first-child { margin-top: 0; }
-
-  .about-body p {
-    color: var(--slate);
-    line-height: 1.7;
-    font-size: 16px;
-  }
-
-  .about-body ul {
-    list-style: none;
-    margin-top: 12px;
-  }
-
+  .about-body p { color: var(--slate); line-height: 1.7; font-size: 16px; }
+  .about-body ul { list-style: none; margin-top: 12px; }
   .about-body ul li {
     color: var(--slate);
     line-height: 1.7;
     padding-left: 24px;
     position: relative;
   }
-
   .about-body ul li::before {
     content: "↳";
     position: absolute;
@@ -349,20 +250,15 @@
     color: var(--accent);
   }
 
-  .placeholder-text {
-    color: var(--slate-light);
-    font-style: italic;
+  .placeholder { color: var(--slate-light); font-style: italic; }
+
+  /* ===== Project entries ===== */
+  .project {
+    margin-bottom: 120px;
   }
+  .project:last-child { margin-bottom: 0; }
 
-  /* ===== Map entries ===== */
-  .map-entry {
-    margin-bottom: 96px;
-    position: relative;
-  }
-
-  .map-entry:last-child { margin-bottom: 0; }
-
-  .map-entry-num {
+  .project-eyebrow {
     font-family: 'JetBrains Mono', monospace;
     font-size: 13px;
     color: var(--accent);
@@ -370,64 +266,40 @@
     margin-bottom: 12px;
   }
 
-  .map-entry-title {
+  .project-title {
     font-family: 'Fraunces', serif;
     font-weight: 500;
-    font-size: 32px;
+    font-size: 36px;
     color: var(--navy);
     line-height: 1.15;
     letter-spacing: -0.015em;
-    margin-bottom: 28px;
-  }
-
-  .map-image {
-    aspect-ratio: 16/9;
-    background:
-      linear-gradient(135deg, rgba(31,42,68,0.92) 0%, rgba(201,155,63,0.5) 100%),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 12px),
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 12px);
-    border: 1px solid var(--rule);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.55);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
     margin-bottom: 32px;
-    position: relative;
-    overflow: hidden;
   }
 
-  .map-image.flood {
-    background:
-      linear-gradient(135deg, rgba(31,42,68,0.88) 0%, rgba(70,130,180,0.55) 100%),
-      repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 12px),
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 12px);
+  /* Hero map per project */
+  .hero-map {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border: 1px solid var(--rule);
+    display: block;
+    margin-bottom: 36px;
+    background: var(--bg-soft);
   }
 
-  .map-image.empty {
-    background:
-      repeating-linear-gradient(0deg, var(--bg-soft) 0 1px, var(--bg) 1px 12px),
-      repeating-linear-gradient(90deg, var(--bg-soft) 0 1px, var(--bg) 1px 12px);
-    color: var(--slate-light);
-  }
-
-  .map-fields {
+  /* Project metadata fields */
+  .project-fields {
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 0;
     border-top: 1px solid var(--rule);
+    margin-bottom: 56px;
   }
-
-  .map-field-label,
-  .map-field-value {
+  .field-label, .field-value {
     padding: 18px 0;
     border-bottom: 1px solid var(--rule);
   }
-
-  .map-field-label {
+  .field-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.2em;
@@ -435,16 +307,124 @@
     color: var(--accent-deep);
     padding-right: 24px;
   }
+  .field-value { color: var(--ink); font-size: 15px; line-height: 1.65; }
+  .field-value.placeholder { color: var(--slate-light); font-style: italic; }
 
-  .map-field-value {
-    color: var(--ink);
+  /* Sub-section heading inside a project */
+  .subsection {
+    margin-top: 64px;
+  }
+  .subsection-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .subsection-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+  }
+  .subsection-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: var(--navy);
+  }
+  .subsection-desc {
+    color: var(--slate);
     font-size: 15px;
-    line-height: 1.65;
+    margin-bottom: 24px;
+    max-width: 720px;
   }
 
-  .map-field-value.placeholder {
-    color: var(--slate-light);
-    font-style: italic;
+  /* Image gallery grid */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .gallery.cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .gallery.cols-4 { grid-template-columns: repeat(4, 1fr); }
+  .gallery.cols-5 { grid-template-columns: repeat(5, 1fr); }
+
+  .gallery-item {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(20,28,48,0.1);
+  }
+  .gallery-item img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    background: var(--bg-soft);
+  }
+  .gallery-caption {
+    padding: 12px 14px 14px;
+    font-size: 13px;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .gallery-caption .sub {
+    display: block;
+    color: var(--slate);
+    font-weight: 400;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 28, 48, 0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    cursor: zoom-out;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+  .lightbox-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.85);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'Fraunces', serif;
   }
 
   /* ===== Workflow ===== */
@@ -454,12 +434,10 @@
     gap: 48px 64px;
     margin-top: 24px;
   }
-
   .workflow-step {
     border-top: 2px solid var(--accent);
     padding-top: 24px;
   }
-
   .workflow-step-num {
     font-family: 'JetBrains Mono', monospace;
     font-size: 12px;
@@ -467,7 +445,6 @@
     letter-spacing: 0.2em;
     margin-bottom: 8px;
   }
-
   .workflow-step h3 {
     font-family: 'Fraunces', serif;
     font-weight: 600;
@@ -475,12 +452,7 @@
     color: var(--navy);
     margin-bottom: 14px;
   }
-
-  .workflow-step p {
-    color: var(--slate);
-    line-height: 1.65;
-    font-size: 15px;
-  }
+  .workflow-step p { color: var(--slate); line-height: 1.65; font-size: 15px; }
 
   /* ===== Contact ===== */
   .contact {
@@ -489,7 +461,6 @@
     position: relative;
     overflow: hidden;
   }
-
   .contact::before {
     content: "";
     position: absolute;
@@ -499,23 +470,11 @@
       radial-gradient(circle at 15% 90%, rgba(70,130,180,0.12) 0%, transparent 50%);
     pointer-events: none;
   }
-
   .contact .container { position: relative; z-index: 1; }
-
   .contact .section-num { color: var(--accent); }
-
   .contact .section-line { background: rgba(255,255,255,0.15); }
-
-  .contact .section-title {
-    color: white;
-    font-size: clamp(48px, 6vw, 72px);
-  }
-
-  .contact .section-title .italic {
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 400;
-  }
+  .contact .section-title { color: white; font-size: clamp(48px, 6vw, 72px); }
+  .contact .section-title .italic { font-style: italic; color: var(--accent); font-weight: 400; }
 
   .contact-grid {
     display: grid;
@@ -523,19 +482,13 @@
     gap: 24px;
     margin-top: 56px;
   }
-
   .contact-item {
     border: 1px solid rgba(255,255,255,0.15);
     padding: 28px 32px;
     transition: all 0.3s ease;
     cursor: pointer;
   }
-
-  .contact-item:hover {
-    border-color: var(--accent);
-    background: rgba(201,155,63,0.05);
-  }
-
+  .contact-item:hover { border-color: var(--accent); background: rgba(201,155,63,0.05); }
   .contact-item-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
@@ -544,21 +497,18 @@
     text-transform: uppercase;
     margin-bottom: 12px;
   }
-
   .contact-item-value {
     font-family: 'Fraunces', serif;
     font-size: 22px;
     color: white;
     font-weight: 500;
   }
-
   .contact-item-value.placeholder {
     color: rgba(255,255,255,0.5);
     font-style: italic;
     font-weight: 400;
   }
 
-  /* ===== Footer ===== */
   footer {
     background: var(--navy-deep);
     color: rgba(255,255,255,0.4);
@@ -578,19 +528,18 @@
     section.page { padding: 64px 24px; }
     .featured-grid { grid-template-columns: 1fr; }
     .about-grid { grid-template-columns: 1fr; gap: 32px; }
-    .map-fields { grid-template-columns: 1fr; }
-    .map-field-label { padding-bottom: 4px; border-bottom: none; }
-    .map-field-value { padding-top: 0; padding-bottom: 18px; }
+    .project-fields { grid-template-columns: 1fr; }
+    .field-label { padding-bottom: 4px; border-bottom: none; }
+    .field-value { padding-top: 0; padding-bottom: 18px; }
     .workflow-grid { grid-template-columns: 1fr; gap: 32px; }
     .contact-grid { grid-template-columns: 1fr; }
-    .map-entry-title { font-size: 26px; }
+    .project-title { font-size: 28px; }
     .section-title { font-size: 34px; }
+    .gallery, .gallery.cols-2, .gallery.cols-4, .gallery.cols-5 { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
 <body>
-
-<div class="site-label">↓ Visual mockup — replicate this layout in Google Sites using its built-in blocks ↓</div>
 
 <!-- ============ NAV ============ -->
 <nav class="top-nav">
@@ -610,9 +559,8 @@
     <div class="hero-eyebrow">— Portfolio · GIS &amp; Spatial Analysis</div>
     <h1>GIS<br/><span class="italic">Portfolio</span></h1>
     <p class="hero-tagline">
-      <span class="placeholder-text" style="color: rgba(201,155,63,0.85);">[Your Name]</span> — geospatial work in risk modeling, public-health geography, and reproducible spatial pipelines.
+      <span class="placeholder-text">[Your Name]</span> — geospatial work in risk modeling, public-health geography, and reproducible spatial pipelines.
     </p>
-    <div class="hero-placeholder">// google sites: large cover banner block + overlay text</div>
   </div>
 </header>
 
@@ -620,36 +568,36 @@
 <section class="page" style="padding-top: 80px;">
   <div class="container">
     <div class="section-marker">
-      <span class="section-num">PAGE 01</span>
+      <span class="section-num">SECTION 01</span>
       <span class="section-line"></span>
     </div>
     <h2 class="section-title">Featured work</h2>
     <p class="section-intro">
-      Three recent maps. Click any thumbnail to see the full project on the Maps page.
+      Two recent multi-hazard risk projects. Scroll to the Maps section for the full set.
     </p>
 
     <div class="featured-grid">
-      <div class="featured-card">
-        <div class="featured-img">[ hurricane michael map ]</div>
+      <a class="featured-card" href="#project-michael">
+        <div class="featured-img-wrap"><img src="images/economy.jpg" alt="Hurricane Michael economic loss"></div>
         <div class="featured-body">
           <div class="featured-title">Hurricane Michael — FL Panhandle</div>
-          <div class="featured-caption">Hazus 7.0 hurricane wind damage assessment across three Panhandle counties.</div>
+          <div class="featured-caption">Hazus 7.0 hurricane damage, loss, debris, and return-period analysis across three Panhandle counties.</div>
         </div>
-      </div>
-      <div class="featured-card">
-        <div class="featured-img flood">[ hamilton county flood ]</div>
+      </a>
+      <a class="featured-card" href="#project-hamilton">
+        <div class="featured-img-wrap"><img src="images/Flood_SVI.jpg" alt="Hamilton County flood and social vulnerability"></div>
         <div class="featured-body">
           <div class="featured-title">Hamilton County Flood Risk</div>
-          <div class="featured-caption">Riverine flood loss estimation for Central Indiana using Hazus Pro.</div>
+          <div class="featured-caption">Riverine flood loss and social vulnerability assessment for Central Indiana.</div>
         </div>
-      </div>
-      <div class="featured-card">
-        <div class="featured-img third">[ third featured map ]</div>
+      </a>
+      <a class="featured-card" href="#workflow">
+        <div class="featured-img-wrap"><img src="images/AAL.jpg" alt="Average annualized loss"></div>
         <div class="featured-body">
-          <div class="featured-title placeholder-text">[Third featured map]</div>
-          <div class="featured-caption placeholder-text">One-line caption describing what the map shows and why it matters.</div>
+          <div class="featured-title">Methods &amp; workflow</div>
+          <div class="featured-caption">How these maps move from raw Hazus and Census data to finished cartography.</div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -658,7 +606,7 @@
 <section id="about" class="page">
   <div class="container">
     <div class="section-marker">
-      <span class="section-num">PAGE 02</span>
+      <span class="section-num">SECTION 02</span>
       <span class="section-line"></span>
     </div>
     <h2 class="section-title">About</h2>
@@ -668,7 +616,7 @@
       <div class="about-body">
         <h3>Who I am</h3>
         <p>
-          <span class="placeholder-text">[Your Name]</span> is a <span class="placeholder-text">[role / student status]</span> focused on the intersection of geospatial analysis, risk modeling, and data engineering. I build maps that turn complex public-data sources — Census, CDC, FEMA, CMS — into clear answers for decision-makers.
+          <span class="placeholder">[Your Name]</span> is a <span class="placeholder">[role / student status]</span> focused on the intersection of geospatial analysis, risk modeling, and data engineering. I build maps that turn complex public-data sources — Census, CDC, FEMA, CMS — into clear answers for decision-makers.
         </p>
 
         <h3>What I work on</h3>
@@ -689,127 +637,216 @@
 <section id="maps" class="page" style="background: var(--bg-soft);">
   <div class="container">
     <div class="section-marker">
-      <span class="section-num">PAGE 03</span>
+      <span class="section-num">SECTION 03</span>
       <span class="section-line"></span>
     </div>
     <h2 class="section-title">Maps &amp; projects</h2>
     <p class="section-intro">
-      Each entry follows the same structure: image first, then the question it answered, the data sources, the method, and the takeaway.
+      Each project leads with a headline map, followed by the supporting cartography organized by theme. Click any thumbnail to view it full-size.
     </p>
 
-    <!-- MAP 1 -->
-    <div class="map-entry">
-      <div class="map-entry-num">MAP 01 / HAZUS · HURRICANE</div>
-      <h3 class="map-entry-title">Hurricane Michael — Damage &amp; Loss Assessment, Florida Panhandle</h3>
-      <div class="map-image">[ map image — full width 16:9 ]</div>
-      <div class="map-fields">
-        <div class="map-field-label">Region</div>
-        <div class="map-field-value">Gadsden, Leon, and Wakulla counties · Florida Panhandle · county-level aggregation</div>
+    <!-- ===== PROJECT 1: HURRICANE MICHAEL ===== -->
+    <div class="project" id="project-michael">
+      <div class="project-eyebrow">PROJECT 01 / HAZUS · HURRICANE</div>
+      <h3 class="project-title">Hurricane Michael — Damage &amp; Loss Assessment, Florida Panhandle</h3>
 
-        <div class="map-field-label">Software</div>
-        <div class="map-field-value">Hazus 7.0 (SQL Server backend) · Python (arcpy) · ArcGIS Pro</div>
+      <img class="hero-map" src="images/economy.jpg" alt="Hurricane Michael economic loss across the Florida Panhandle" data-caption="Total economic loss — Hurricane Michael, FL Panhandle">
 
-        <div class="map-field-label">Question</div>
-        <div class="map-field-value">How was building damage and economic loss distributed across the three Panhandle counties most affected by Hurricane Michael, and which occupancy classes absorbed the most loss?</div>
+      <div class="project-fields">
+        <div class="field-label">Region</div>
+        <div class="field-value">Gadsden, Leon, and Wakulla counties · Florida Panhandle · county-level aggregation</div>
 
-        <div class="map-field-label">Data sources</div>
-        <div class="map-field-value">Hazus 7.0 default hurricane scenario tables (huSummaryDamage, huSummaryLoss), hzDemographicsB inventory, FEMA wind-field inputs.</div>
+        <div class="field-label">Software</div>
+        <div class="field-value">Hazus 7.0 (SQL Server backend) · Python (arcpy) · ArcGIS Pro</div>
 
-        <div class="map-field-label">Method</div>
-        <div class="map-field-value">Queried Hazus SQL Server tables to extract damage state counts and dollar loss by general building type and occupancy. Joined results to county geometry in ArcGIS Pro. Applied the 1000x scaling factor on loss values and aggregated to county totals.</div>
+        <div class="field-label">Question</div>
+        <div class="field-value">How was building damage and economic loss distributed across the three Panhandle counties most affected by Hurricane Michael, what does the long-tail risk look like across return periods, and how much debris was generated?</div>
 
-        <div class="map-field-label">Key finding</div>
-        <div class="map-field-value placeholder">[Replace with your headline number — e.g., total estimated building loss reached $X million, with residential occupancy accounting for roughly Y%.]</div>
+        <div class="field-label">Data sources</div>
+        <div class="field-value">Hazus 7.0 default hurricane scenario tables (huSummaryDamage, huSummaryLoss), hzDemographicsB inventory, FEMA wind-field inputs, NOAA storm track.</div>
 
-        <div class="map-field-label">What it shows</div>
-        <div class="map-field-value">Choropleth of total economic loss by county, with proportional symbols overlaid showing the count of moderately-to-completely damaged buildings.</div>
+        <div class="field-label">Method</div>
+        <div class="field-value">Queried Hazus SQL Server tables to extract damage state counts and dollar loss by general building type and occupancy. Joined results to county geometry in ArcGIS Pro. Applied the 1000x scaling factor on loss values and aggregated to county totals. Generated return-period loss exceedance maps for both economic and building loss at 10, 25, 50, 100, and 500-year intervals.</div>
+
+        <div class="field-label">Key finding</div>
+        <div class="field-value placeholder">[Replace with your headline number — e.g., total estimated building loss reached $X million, with residential occupancy accounting for roughly Y%.]</div>
+      </div>
+
+      <!-- Sub-section 1: Hazard Inputs -->
+      <div class="subsection">
+        <div class="subsection-header">
+          <span class="subsection-num">1.1</span>
+          <span class="subsection-title">Hazard inputs</span>
+        </div>
+        <p class="subsection-desc">Wind field, peak gust, terrain context, and storm track — the physical hazard the loss model is built on.</p>
+        <div class="gallery cols-4">
+          <div class="gallery-item" onclick="openLightbox('images/WindSpeed1.jpg', 'Sustained wind speed')">
+            <img src="images/WindSpeed1.jpg" alt="Sustained wind speed">
+            <div class="gallery-caption">Wind speed<span class="sub">Sustained wind field</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/PeakGust3.jpg', 'Peak 3-second gust')">
+            <img src="images/PeakGust3.jpg" alt="Peak 3-second gust">
+            <div class="gallery-caption">Peak gust<span class="sub">3-second peak gust</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/ST4_1.jpg', 'Storm track')">
+            <img src="images/ST4_1.jpg" alt="Storm track">
+            <div class="gallery-caption">Storm track<span class="sub">Hurricane Michael path</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/Terrain.jpg', 'Terrain context')">
+            <img src="images/Terrain.jpg" alt="Terrain">
+            <div class="gallery-caption">Terrain<span class="sub">Study area context</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section 2: Damage & Loss Summary -->
+      <div class="subsection">
+        <div class="subsection-header">
+          <span class="subsection-num">1.2</span>
+          <span class="subsection-title">Damage &amp; loss summary</span>
+        </div>
+        <p class="subsection-desc">Total damaged structures and aggregate economic exposure across the three-county study area.</p>
+        <div class="gallery cols-2">
+          <div class="gallery-item" onclick="openLightbox('images/damaged.jpg', 'Damaged buildings')">
+            <img src="images/damaged.jpg" alt="Damaged buildings">
+            <div class="gallery-caption">Damaged buildings<span class="sub">Count of moderate-to-complete damage</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/AAL.jpg', 'Average annualized loss')">
+            <img src="images/AAL.jpg" alt="Average annualized loss">
+            <div class="gallery-caption">Average annualized loss<span class="sub">Expected long-run loss per year</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section 3: Return-period loss -->
+      <div class="subsection">
+        <div class="subsection-header">
+          <span class="subsection-num">1.3</span>
+          <span class="subsection-title">Return-period loss exceedance</span>
+        </div>
+        <p class="subsection-desc">Economic loss (top row) and building loss (bottom row) at 10, 25, 50, 100, and 500-year return intervals. The series shows how loss scales with rarer, more severe events.</p>
+        <div class="gallery cols-5" style="margin-bottom: 20px;">
+          <div class="gallery-item" onclick="openLightbox('images/E10.jpg', '10-year economic loss')">
+            <img src="images/E10.jpg" alt="10-year economic loss">
+            <div class="gallery-caption">E10<span class="sub">10-yr economic loss</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/E25.jpg', '25-year economic loss')">
+            <img src="images/E25.jpg" alt="25-year economic loss">
+            <div class="gallery-caption">E25<span class="sub">25-yr economic loss</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/E50.jpg', '50-year economic loss')">
+            <img src="images/E50.jpg" alt="50-year economic loss">
+            <div class="gallery-caption">E50<span class="sub">50-yr economic loss</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/E100.jpg', '100-year economic loss')">
+            <img src="images/E100.jpg" alt="100-year economic loss">
+            <div class="gallery-caption">E100<span class="sub">100-yr economic loss</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/E500.jpg', '500-year economic loss')">
+            <img src="images/E500.jpg" alt="500-year economic loss">
+            <div class="gallery-caption">E500<span class="sub">500-yr economic loss</span></div>
+          </div>
+        </div>
+        <div class="gallery cols-5">
+          <div class="gallery-item" onclick="openLightbox('images/B10.jpg', '10-year building loss')">
+            <img src="images/B10.jpg" alt="10-year building loss">
+            <div class="gallery-caption">B10<span class="sub">10-yr building loss</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/B25.jpg', '25-year building loss')">
+            <img src="images/B25.jpg" alt="25-year building loss">
+            <div class="gallery-caption">B25<span class="sub">25-yr building loss</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/B50.jpg', '50-year building loss')">
+            <img src="images/B50.jpg" alt="50-year building loss">
+            <div class="gallery-caption">B50<span class="sub">50-yr building loss</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/B100.jpg', '100-year building loss')">
+            <img src="images/B100.jpg" alt="100-year building loss">
+            <div class="gallery-caption">B100<span class="sub">100-yr building loss</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/B500.jpg', '500-year building loss')">
+            <img src="images/B500.jpg" alt="500-year building loss">
+            <div class="gallery-caption">B500<span class="sub">500-yr building loss</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section 4: Debris & Utilities -->
+      <div class="subsection">
+        <div class="subsection-header">
+          <span class="subsection-num">1.4</span>
+          <span class="subsection-title">Debris &amp; utility impact</span>
+        </div>
+        <p class="subsection-desc">Debris estimates by source (building, tree, combined) and impact on the electrical utility network.</p>
+        <div class="gallery cols-4">
+          <div class="gallery-item" onclick="openLightbox('images/Building_debris.jpg', 'Building debris')">
+            <img src="images/Building_debris.jpg" alt="Building debris">
+            <div class="gallery-caption">Building debris<span class="sub">Tons of structural debris</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/Tree_debris.jpg', 'Tree debris')">
+            <img src="images/Tree_debris.jpg" alt="Tree debris">
+            <div class="gallery-caption">Tree debris<span class="sub">Tons of vegetative debris</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/Combined_debris.jpg', 'Combined debris')">
+            <img src="images/Combined_debris.jpg" alt="Combined debris">
+            <div class="gallery-caption">Combined debris<span class="sub">Total debris generation</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/Utility.jpg', 'Utility impact')">
+            <img src="images/Utility.jpg" alt="Utility impact">
+            <div class="gallery-caption">Utility impact<span class="sub">Electrical network exposure</span></div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- MAP 2 -->
-    <div class="map-entry">
-      <div class="map-entry-num">MAP 02 / HAZUS · FLOOD</div>
-      <h3 class="map-entry-title">Hamilton County Flood Risk — Central Indiana</h3>
-      <div class="map-image flood">[ map image — full width 16:9 ]</div>
-      <div class="map-fields">
-        <div class="map-field-label">Region</div>
-        <div class="map-field-value">Hamilton County, Indiana · census-block-group level</div>
+    <!-- ===== PROJECT 2: HAMILTON COUNTY FLOOD ===== -->
+    <div class="project" id="project-hamilton">
+      <div class="project-eyebrow">PROJECT 02 / HAZUS · FLOOD</div>
+      <h3 class="project-title">Hamilton County Flood Risk — Central Indiana</h3>
 
-        <div class="map-field-label">Software</div>
-        <div class="map-field-value">Hazus Pro (riverine flood module) · ArcGIS Pro · Python</div>
+      <img class="hero-map" src="images/Flood_SVI.jpg" alt="Hamilton County flood risk and social vulnerability" data-caption="Flood loss × social vulnerability — Hamilton County, IN">
 
-        <div class="map-field-label">Question</div>
-        <div class="map-field-value">Which neighborhoods in Hamilton County face the greatest expected annualized flood loss, and how does that risk overlap with socially vulnerable populations?</div>
+      <div class="project-fields">
+        <div class="field-label">Region</div>
+        <div class="field-value">Hamilton County, Indiana · census-block-group level</div>
 
-        <div class="map-field-label">Data sources</div>
-        <div class="map-field-value">Hazus Pro default flood depth grids · FEMA National Risk Index · ACS 5-year demographic estimates · county parcel inventory.</div>
+        <div class="field-label">Software</div>
+        <div class="field-value">Hazus Pro (riverine flood module) · ArcGIS Pro · Python</div>
 
-        <div class="map-field-label">Method</div>
-        <div class="map-field-value">Ran a 100-year riverine flood scenario in Hazus Pro. Exported building-level loss estimates, aggregated to block group, and joined to a social vulnerability index built from ACS variables. Symbolized using a bivariate scheme (loss × vulnerability).</div>
+        <div class="field-label">Question</div>
+        <div class="field-value">Which neighborhoods in Hamilton County face the greatest expected flood loss, and how does that risk overlap with socially vulnerable populations and critical infrastructure?</div>
 
-        <div class="map-field-label">Key finding</div>
-        <div class="map-field-value placeholder">[Replace with your headline number — e.g., X block groups fall in the highest quartile of both estimated flood loss and social vulnerability.]</div>
+        <div class="field-label">Data sources</div>
+        <div class="field-value">Hazus Pro default flood depth grids · FEMA National Risk Index · ACS 5-year demographic estimates · county parcel inventory · DEM and road network layers.</div>
 
-        <div class="map-field-label">What it shows</div>
-        <div class="map-field-value">Bivariate choropleth showing estimated flood loss on one axis and social vulnerability on the other. The darkest corner of the legend flags block groups warranting priority outreach.</div>
+        <div class="field-label">Method</div>
+        <div class="field-value">Ran a riverine flood scenario in Hazus Pro. Exported building-level loss estimates, aggregated to block group, and joined to a social vulnerability index built from ACS variables. Symbolized using a bivariate scheme (loss × vulnerability). Overlaid road exposure to identify access constraints during a flood event.</div>
+
+        <div class="field-label">Key finding</div>
+        <div class="field-value placeholder">[Replace with your headline number — e.g., X block groups fall in the highest quartile of both estimated flood loss and social vulnerability, concentrated along the [river/corridor name].]</div>
       </div>
-    </div>
 
-    <!-- MAP 3 — placeholder -->
-    <div class="map-entry">
-      <div class="map-entry-num">MAP 03 / [CATEGORY]</div>
-      <h3 class="map-entry-title placeholder-text">[Map Title — replace]</h3>
-      <div class="map-image empty">[ add map image ]</div>
-      <div class="map-fields">
-        <div class="map-field-label">Region</div>
-        <div class="map-field-value placeholder">[Geographic extent and unit of analysis]</div>
-
-        <div class="map-field-label">Software</div>
-        <div class="map-field-value placeholder">[ArcGIS Pro · QGIS · Hazus · Python · etc.]</div>
-
-        <div class="map-field-label">Question</div>
-        <div class="map-field-value placeholder">[What question does this map answer? One sentence.]</div>
-
-        <div class="map-field-label">Data sources</div>
-        <div class="map-field-value placeholder">[List the public or proprietary datasets used.]</div>
-
-        <div class="map-field-label">Method</div>
-        <div class="map-field-value placeholder">[2–3 sentence summary of the analytical or cartographic workflow.]</div>
-
-        <div class="map-field-label">Key finding</div>
-        <div class="map-field-value placeholder">[The single most important takeaway a viewer should leave with.]</div>
-
-        <div class="map-field-label">What it shows</div>
-        <div class="map-field-value placeholder">[Describe the visual — symbology, legend, what a reader sees first.]</div>
-      </div>
-    </div>
-
-    <!-- MAP 4 — placeholder -->
-    <div class="map-entry">
-      <div class="map-entry-num">MAP 04 / [CATEGORY]</div>
-      <h3 class="map-entry-title placeholder-text">[Map Title — replace]</h3>
-      <div class="map-image empty">[ add map image ]</div>
-      <div class="map-fields">
-        <div class="map-field-label">Region</div>
-        <div class="map-field-value placeholder">[Geographic extent and unit of analysis]</div>
-
-        <div class="map-field-label">Software</div>
-        <div class="map-field-value placeholder">[Tools used]</div>
-
-        <div class="map-field-label">Question</div>
-        <div class="map-field-value placeholder">[Driving question]</div>
-
-        <div class="map-field-label">Data sources</div>
-        <div class="map-field-value placeholder">[Datasets]</div>
-
-        <div class="map-field-label">Method</div>
-        <div class="map-field-value placeholder">[Workflow summary]</div>
-
-        <div class="map-field-label">Key finding</div>
-        <div class="map-field-value placeholder">[Headline takeaway]</div>
-
-        <div class="map-field-label">What it shows</div>
-        <div class="map-field-value placeholder">[Visual description]</div>
+      <!-- Hamilton supporting gallery -->
+      <div class="subsection">
+        <div class="subsection-header">
+          <span class="subsection-num">2.1</span>
+          <span class="subsection-title">Supporting maps</span>
+        </div>
+        <p class="subsection-desc">Terrain context, road exposure, and the full flood × social vulnerability composite.</p>
+        <div class="gallery">
+          <div class="gallery-item" onclick="openLightbox('images/Elevation_hamiliton.jpg', 'Elevation context')">
+            <img src="images/Elevation_hamiliton.jpg" alt="Elevation">
+            <div class="gallery-caption">Elevation<span class="sub">Terrain context for Hamilton County</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/Ham_Road.jpg', 'Road network exposure')">
+            <img src="images/Ham_Road.jpg" alt="Road network">
+            <div class="gallery-caption">Road exposure<span class="sub">Network access during flood event</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/SVI_Full_Flood.jpg', 'Full SVI and flood overlay')">
+            <img src="images/SVI_Full_Flood.jpg" alt="SVI and flood overlay">
+            <div class="gallery-caption">SVI × Flood composite<span class="sub">Full social vulnerability overlay</span></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -820,7 +857,7 @@
 <section id="workflow" class="page">
   <div class="container">
     <div class="section-marker">
-      <span class="section-num">PAGE 04</span>
+      <span class="section-num">SECTION 04</span>
       <span class="section-line"></span>
     </div>
     <h2 class="section-title">Workflow &amp; methods</h2>
@@ -860,7 +897,7 @@
 <section id="contact" class="page contact">
   <div class="container">
     <div class="section-marker">
-      <span class="section-num">PAGE 05</span>
+      <span class="section-num">SECTION 05</span>
       <span class="section-line"></span>
     </div>
     <h2 class="section-title">Let's talk <span class="italic">maps.</span></h2>
@@ -892,6 +929,36 @@
 <footer>
   © [YEAR] [YOUR NAME] · GIS PORTFOLIO · ALL MAPS BY THE AUTHOR
 </footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <img id="lightbox-img" src="" alt="">
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<script>
+  function openLightbox(src, caption) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox-caption').textContent = caption || '';
+    lb.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  // Also enable clicking the hero maps to open lightbox
+  document.querySelectorAll('img.hero-map').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => openLightbox(img.src, img.dataset.caption || img.alt));
+  });
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 
 </body>
 </html>
