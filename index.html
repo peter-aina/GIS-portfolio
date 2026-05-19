@@ -213,18 +213,9 @@
 
   .about-image {
     aspect-ratio: 3/4;
-    background:
-      linear-gradient(135deg, rgba(31,42,68,0.7) 0%, rgba(201,155,63,0.3) 100%),
-      repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 14px);
+    background: var(--bg-soft);
     border: 1px solid var(--rule);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.5);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
+    overflow: hidden;
   }
 
   .about-body h3 {
@@ -556,10 +547,10 @@
 <!-- ============ HERO ============ -->
 <header id="home" class="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">— Portfolio · GIS &amp; Spatial Analysis</div>
+    <div class="hero-eyebrow">Portfolio · GIS &amp; Spatial Analysis</div>
     <h1>GIS<br/><span class="italic">Portfolio</span></h1>
     <p class="hero-tagline">
-      <span class="placeholder-text">Peter Aina</span> — geospatial work in risk modeling, public-health geography, and reproducible spatial pipelines.
+      <span class="placeholder-text">Peter Aina</span>. Geospatial work in risk modeling, public-health geography, and reproducible spatial pipelines.
     </p>
   </div>
 </header>
@@ -580,7 +571,7 @@
       <a class="featured-card" href="#project-michael">
         <div class="featured-img-wrap"><img src="images/economy.jpg" alt="Hurricane Michael economic loss"></div>
         <div class="featured-body">
-          <div class="featured-title">Hurricane Michael — FL Panhandle</div>
+          <div class="featured-title">Hurricane Michael, FL Panhandle</div>
           <div class="featured-caption">Hazus 7.0 hurricane damage, loss, debris, and return-period analysis across three Panhandle counties.</div>
         </div>
       </a>
@@ -612,11 +603,11 @@
     <h2 class="section-title">About</h2>
 
     <div class="about-grid">
-      <div class="about-image">[ headshot or symbolic image ]</div>
+      <div class="about-image"><img src="images/profile_photo.png" alt="Peter Aina" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
       <div class="about-body">
         <h3>Who I am</h3>
         <p>
-          <span class="placeholder">Peter Aina </span> is a <span class="placeholder">Geospatial Data Engineer/Analyst </span> focused on the intersection of geospatial analysis, risk modeling, and data engineering. I build maps that turn complex public-data sources — Census, CDC, FEMA, CMS — into clear answers for decision-makers.
+          <span class="placeholder">Peter Aina </span> is a <span class="placeholder">Geospatial Data Engineer/Analyst </span> focused on the intersection of geospatial analysis, risk modeling, and data engineering. I build maps that turn complex public-data sources, including Census, CDC, FEMA, and CMS, into clear answers for decision-makers.
         </p>
 
         <h3>What I work on</h3>
@@ -648,45 +639,48 @@
     <!-- ===== PROJECT 1: HURRICANE MICHAEL ===== -->
     <div class="project" id="project-michael">
       <div class="project-eyebrow">PROJECT 01 / HAZUS · HURRICANE</div>
-      <h3 class="project-title">Hurricane Michael — Damage &amp; Loss Assessment, Florida Panhandle</h3>
+      <h3 class="project-title">Hurricane Michael: Damage and Loss Assessment, Florida Panhandle</h3>
 
-      <img class="hero-map" src="images/economy.jpg" alt="Hurricane Michael economic loss across the Florida Panhandle" data-caption="Total economic loss — Hurricane Michael, FL Panhandle">
+      <img class="hero-map" src="images/economy.jpg" alt="Hurricane Michael economic loss across the Florida Panhandle" data-caption="Total economic loss, Hurricane Michael, FL Panhandle">
 
       <div class="project-fields">
         <div class="field-label">Region</div>
-        <div class="field-value">Gadsden, Leon, and Wakulla counties · Florida Panhandle · county-level aggregation</div>
+        <div class="field-value">Gadsden, Leon, and Wakulla counties, Florida Panhandle. Census tract level. 1,967 sq mi, population 381,645.</div>
+
+        <div class="field-label">Event</div>
+        <div class="field-value">Hurricane Michael, October 10, 2018. Category 5 landfall near Mexico Beach with maximum sustained winds of 161 mph and minimum pressure of 919 mb.</div>
 
         <div class="field-label">Software</div>
-        <div class="field-value">Hazus 7.0 (SQL Server backend) · Python (arcpy) · ArcGIS Pro</div>
+        <div class="field-value">Hazus 7.0 · HURREVAC · ArcGIS Pro · USGS 3DEP · Census TIGER/Line</div>
 
         <div class="field-label">Question</div>
-        <div class="field-value">How was building damage and economic loss distributed across the three Panhandle counties most affected by Hurricane Michael, what does the long-tail risk look like across return periods, and how much debris was generated?</div>
+        <div class="field-value">How was building damage and economic loss distributed across the three Panhandle counties most affected by Hurricane Michael, how much debris was generated, and how does the spatial pattern of physical loss overlap with social vulnerability and community resilience?</div>
 
         <div class="field-label">Data sources</div>
-        <div class="field-value">Hazus 7.0 default hurricane scenario tables (huSummaryDamage, huSummaryLoss), hzDemographicsB inventory, FEMA wind-field inputs, NOAA storm track.</div>
+        <div class="field-value">Hazus 7.0 default hurricane scenario outputs for wind speed, peak gust, debris, damage, and loss. HURREVAC storm track for Hurricane Michael. CDC Social Vulnerability Index (2018). FEMA National Risk Index and Community Resilience Challenges Index. USGS 3DEP digital elevation model. Census TIGER/Line boundaries and roads.</div>
 
         <div class="field-label">Method</div>
-        <div class="field-value">Queried Hazus SQL Server tables to extract damage state counts and dollar loss by general building type and occupancy. Joined results to county geometry in ArcGIS Pro. Applied the 1000x scaling factor on loss values and aggregated to county totals. Generated return-period loss exceedance maps for both economic and building loss at 10, 25, 50, 100, and 500-year intervals.</div>
+        <div class="field-value">Defined the study area in Hazus 7.0 at the county level for Gadsden, Leon, and Wakulla. Loaded the Hurricane Michael advisory track from HURREVAC through the Hazus Create Scenario window and ran the analysis with default parameters. Symbolized MaxSustained, PeakGust, debris, damage, and loss outputs in ArcGIS Pro using manual interval classification with four classes. Clipped CDC SVI 2018 census tracts to the three study counties and mapped RPL_THEMES with five manual classes to match the CDC reference scheme.</div>
 
         <div class="field-label">Key finding</div>
-        <div class="field-value placeholder">Total predicted economic loss across the three counties exceeded $32.7 million, with Gadsden County alone accounting for $18.2 million (56% of total loss) despite representing only 11.7% of the area's population, and residential buildings absorbed over 90% of all economic damage.</div>
+        <div class="field-value">Total predicted economic loss across the three counties exceeded $32.7 million, with Gadsden County alone accounting for $18.2 million (56% of total loss) despite representing only 11.7% of the area's population, and residential buildings absorbed over 90% of all economic damage.</div>
       </div>
 
-      <!-- Sub-section 1: Hazard Inputs -->
+      <!-- Sub-section 1.1: Hazard Inputs -->
       <div class="subsection">
         <div class="subsection-header">
           <span class="subsection-num">1.1</span>
           <span class="subsection-title">Hazard inputs</span>
         </div>
-        <p class="subsection-desc">Wind field, peak gust, terrain context, and storm track — the physical hazard the loss model is built on.</p>
+        <p class="subsection-desc">Wind field, peak gust, terrain context, and storm track. The physical hazard the loss model is built on. Maximum sustained wind reached 73 mph and peak gust 94 mph near Chattahoochee in Gadsden County, the closest point to the storm track.</p>
         <div class="gallery cols-4">
-          <div class="gallery-item" onclick="openLightbox('images/WindSpeed1.jpg', 'Sustained wind speed')">
-            <img src="images/WindSpeed1.jpg" alt="Sustained wind speed">
-            <div class="gallery-caption">Wind speed<span class="sub">Sustained wind field</span></div>
+          <div class="gallery-item" onclick="openLightbox('images/WindSpeed1.jpg', 'Maximum sustained wind speed')">
+            <img src="images/WindSpeed1.jpg" alt="Maximum sustained wind speed">
+            <div class="gallery-caption">Wind speed<span class="sub">Max sustained, up to 73 mph</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('images/PeakGust3.jpg', 'Peak 3-second gust')">
             <img src="images/PeakGust3.jpg" alt="Peak 3-second gust">
-            <div class="gallery-caption">Peak gust<span class="sub">3-second peak gust</span></div>
+            <div class="gallery-caption">Peak gust<span class="sub">3-second peak, up to 94 mph</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('images/ST4_1.jpg', 'Storm track')">
             <img src="images/ST4_1.jpg" alt="Storm track">
@@ -694,106 +688,53 @@
           </div>
           <div class="gallery-item" onclick="openLightbox('images/Terrain.jpg', 'Terrain context')">
             <img src="images/Terrain.jpg" alt="Terrain">
-            <div class="gallery-caption">Terrain<span class="sub">Study area context</span></div>
+            <div class="gallery-caption">Terrain<span class="sub">USGS 3DEP, study area context</span></div>
           </div>
         </div>
       </div>
 
-      <!-- Sub-section 2: Damage & Loss Summary -->
+      <!-- Sub-section 1.2: Damage & Loss Summary -->
       <div class="subsection">
         <div class="subsection-header">
           <span class="subsection-num">1.2</span>
-          <span class="subsection-title">Damage &amp; loss summary</span>
+          <span class="subsection-title">Damage and economic loss</span>
         </div>
-        <p class="subsection-desc">Total damaged structures and aggregate economic exposure across the three-county study area.</p>
+        <p class="subsection-desc">Approximately 287 buildings were affected across the three-county study area, with Gadsden County accounting for over 64%. Residential structures absorbed more than 90% of total economic damage.</p>
         <div class="gallery cols-2">
           <div class="gallery-item" onclick="openLightbox('images/damaged.jpg', 'Damaged buildings')">
             <img src="images/damaged.jpg" alt="Damaged buildings">
-            <div class="gallery-caption">Damaged buildings<span class="sub">Count of moderate-to-complete damage</span></div>
+            <div class="gallery-caption">Damaged buildings<span class="sub">Count of any damage, by census tract</span></div>
           </div>
-          <div class="gallery-item" onclick="openLightbox('images/AAL.jpg', 'Average annualized loss')">
-            <img src="images/AAL.jpg" alt="Average annualized loss">
-            <div class="gallery-caption">Average annualized loss<span class="sub">Expected long-run loss per year</span></div>
+          <div class="gallery-item" onclick="openLightbox('images/economy.jpg', 'Total economic loss')">
+            <img src="images/economy.jpg" alt="Total economic loss">
+            <div class="gallery-caption">Total economic loss<span class="sub">$32.7M across three counties</span></div>
           </div>
         </div>
       </div>
 
-      <!-- Sub-section 3: Return-period loss -->
+      <!-- Sub-section 1.3: Debris & Utilities -->
       <div class="subsection">
         <div class="subsection-header">
           <span class="subsection-num">1.3</span>
-          <span class="subsection-title">Return-period loss exceedance</span>
+          <span class="subsection-title">Debris and utility impact</span>
         </div>
-        <p class="subsection-desc">Economic loss (top row) and building loss (bottom row) at 10, 25, 50, 100, and 500-year return intervals. The series shows how loss scales with rarer, more severe events.</p>
-        <div class="gallery cols-5" style="margin-bottom: 20px;">
-          <div class="gallery-item" onclick="openLightbox('images/E10.jpg', '10-year economic loss')">
-            <img src="images/E10.jpg" alt="10-year economic loss">
-            <div class="gallery-caption">E10<span class="sub">10-yr economic loss</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('images/E25.jpg', '25-year economic loss')">
-            <img src="images/E25.jpg" alt="25-year economic loss">
-            <div class="gallery-caption">E25<span class="sub">25-yr economic loss</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('images/E50.jpg', '50-year economic loss')">
-            <img src="images/E50.jpg" alt="50-year economic loss">
-            <div class="gallery-caption">E50<span class="sub">50-yr economic loss</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('images/E100.jpg', '100-year economic loss')">
-            <img src="images/E100.jpg" alt="100-year economic loss">
-            <div class="gallery-caption">E100<span class="sub">100-yr economic loss</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('images/E500.jpg', '500-year economic loss')">
-            <img src="images/E500.jpg" alt="500-year economic loss">
-            <div class="gallery-caption">E500<span class="sub">500-yr economic loss</span></div>
-          </div>
-        </div>
-        <div class="gallery cols-5">
-          <div class="gallery-item" onclick="openLightbox('images/B10.jpg', '10-year building loss')">
-            <img src="images/B10.jpg" alt="10-year building loss">
-            <div class="gallery-caption">B10<span class="sub">10-yr building loss</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('images/B25.jpg', '25-year building loss')">
-            <img src="images/B25.jpg" alt="25-year building loss">
-            <div class="gallery-caption">B25<span class="sub">25-yr building loss</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('images/B50.jpg', '50-year building loss')">
-            <img src="images/B50.jpg" alt="50-year building loss">
-            <div class="gallery-caption">B50<span class="sub">50-yr building loss</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('images/B100.jpg', '100-year building loss')">
-            <img src="images/B100.jpg" alt="100-year building loss">
-            <div class="gallery-caption">B100<span class="sub">100-yr building loss</span></div>
-          </div>
-          <div class="gallery-item" onclick="openLightbox('images/B500.jpg', '500-year building loss')">
-            <img src="images/B500.jpg" alt="500-year building loss">
-            <div class="gallery-caption">B500<span class="sub">500-yr building loss</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sub-section 4: Debris & Utilities -->
-      <div class="subsection">
-        <div class="subsection-header">
-          <span class="subsection-num">1.4</span>
-          <span class="subsection-title">Debris &amp; utility impact</span>
-        </div>
-        <p class="subsection-desc">Debris estimates by source (building, tree, combined) and impact on the electrical utility network.</p>
+        <p class="subsection-desc">Hurricane Michael generated approximately 196,445 tons of debris across the study area. Tree debris accounted for over 99% of the total, with Gadsden County producing 130,932 tons alone.</p>
         <div class="gallery cols-4">
           <div class="gallery-item" onclick="openLightbox('images/Building_debris.jpg', 'Building debris')">
             <img src="images/Building_debris.jpg" alt="Building debris">
-            <div class="gallery-caption">Building debris<span class="sub">Tons of structural debris</span></div>
+            <div class="gallery-caption">Building debris<span class="sub">746 tons total</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('images/Tree_debris.jpg', 'Tree debris')">
             <img src="images/Tree_debris.jpg" alt="Tree debris">
-            <div class="gallery-caption">Tree debris<span class="sub">Tons of vegetative debris</span></div>
+            <div class="gallery-caption">Tree debris<span class="sub">195,699 tons total</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('images/Combined_debris.jpg', 'Combined debris')">
             <img src="images/Combined_debris.jpg" alt="Combined debris">
-            <div class="gallery-caption">Combined debris<span class="sub">Total debris generation</span></div>
+            <div class="gallery-caption">Combined debris<span class="sub">196,445 tons total</span></div>
           </div>
           <div class="gallery-item" onclick="openLightbox('images/Utility.jpg', 'Utility impact')">
             <img src="images/Utility.jpg" alt="Utility impact">
-            <div class="gallery-caption">Utility impact<span class="sub">Electrical network exposure</span></div>
+            <div class="gallery-caption">Utility infrastructure<span class="sub">Power plants and exposure</span></div>
           </div>
         </div>
       </div>
@@ -802,49 +743,120 @@
     <!-- ===== PROJECT 2: HAMILTON COUNTY FLOOD ===== -->
     <div class="project" id="project-hamilton">
       <div class="project-eyebrow">PROJECT 02 / HAZUS · FLOOD</div>
-      <h3 class="project-title">Hamilton County Flood Risk — Central Indiana</h3>
+      <h3 class="project-title">Hamilton County Flood Risk, Central Indiana</h3>
 
-      <img class="hero-map" src="images/Flood_SVI.jpg" alt="Hamilton County flood risk and social vulnerability" data-caption="Flood loss × social vulnerability — Hamilton County, IN">
+      <img class="hero-map" src="images/Flood_SVI.jpg" alt="Hamilton County flood risk and social vulnerability" data-caption="Flood risk and social vulnerability, Hamilton County, IN">
 
       <div class="project-fields">
         <div class="field-label">Region</div>
-        <div class="field-value">Hamilton County, Indiana · census-block-group level</div>
+        <div class="field-value">Hamilton County, Indiana. Census tract level. 402 sq mi, population 387,036. Located in the Upper White River Watershed, directly north of Indianapolis.</div>
+
+        <div class="field-label">Scenarios</div>
+        <div class="field-value">Five riverine flood return periods (10, 25, 50, 100, and 500-year) plus Average Annualized Loss (AAL).</div>
 
         <div class="field-label">Software</div>
-        <div class="field-value">Hazus Pro (riverine flood module) · ArcGIS Pro · Python</div>
+        <div class="field-value">Hazus 7.0 · ArcGIS Pro · USGS 3DEP · Census TIGER/Line · USGS NHD</div>
 
         <div class="field-label">Question</div>
-        <div class="field-value">Which neighborhoods in Hamilton County face the greatest expected flood loss, and how does that risk overlap with socially vulnerable populations and critical infrastructure?</div>
+        <div class="field-value">How does expected flood damage and economic loss in Hamilton County scale across five return periods (10, 25, 50, 100, and 500-year), and how does the spatial pattern of risk overlap with socially vulnerable populations along the White River corridor?</div>
 
         <div class="field-label">Data sources</div>
-        <div class="field-value">Hazus Pro default flood depth grids · FEMA National Risk Index · ACS 5-year demographic estimates · county parcel inventory · DEM and road network layers.</div>
+        <div class="field-value">Hazus 7.0 with five course-provided flood depth grids (RPD10, RPD25, RPD50, RPD100, RPD500). CDC Social Vulnerability Index (2022). FEMA Resilience Analysis and Planning Tool (RAPT) and National Risk Index. USGS 3DEP digital elevation model. USGS National Hydrography Dataset. Census TIGER/Line boundaries and roads.</div>
 
         <div class="field-label">Method</div>
-        <div class="field-value">Ran a riverine flood scenario in Hazus Pro. Exported building-level loss estimates, aggregated to block group, and joined to a social vulnerability index built from ACS variables. Symbolized using a bivariate scheme (loss × vulnerability). Overlaid road exposure to identify access constraints during a flood event.</div>
+        <div class="field-value">Defined the study area in Hazus 7.0 for Hamilton County (FIPS 18057). Imported the five depth grids in the Create Flood Scenario window and assigned each to its matching return period, with the Average Annualized Loss option enabled. Symbolized the 500-year scenario first to set consistent classification breakpoints, then applied that same legend to all lower return periods so the maps could be read against one another. Clipped the CDC SVI 2022 census tracts to Hamilton County (FIPS 18057) and mapped RPL_THEMES with four manual classes.</div>
 
         <div class="field-label">Key finding</div>
-        <div class="field-value placeholder">Total economic loss scales from $163.11 million in the 10-year scenario to $343.74 million in the 500-year scenario, with an Average Annualized Loss of $20.45 million concentrated along the White River corridor through Noblesville, Carmel, and Fishers.</div>
+        <div class="field-value">Total economic loss scales from $163.11 million in the 10-year scenario to $343.74 million in the 500-year scenario, with an Average Annualized Loss of $20.45 million concentrated along the White River corridor through Noblesville, Carmel, and Fishers.</div>
       </div>
 
-      <!-- Hamilton supporting gallery -->
+      <!-- Sub-section 2.1: Terrain & Transportation Context -->
       <div class="subsection">
         <div class="subsection-header">
           <span class="subsection-num">2.1</span>
-          <span class="subsection-title">Supporting maps</span>
+          <span class="subsection-title">Terrain, transportation, and social vulnerability</span>
         </div>
-        <p class="subsection-desc">Terrain context, road exposure, and the full flood × social vulnerability composite.</p>
+        <p class="subsection-desc">Elevation context, transportation and utility infrastructure, and the CDC Social Vulnerability Index that frames the risk story. Hamilton County's overall SVI of 0.032 is one of the lowest in Indiana, but a few tracts in Hortonville and Westfield show notably higher vulnerability.</p>
         <div class="gallery">
-          <div class="gallery-item" onclick="openLightbox('images/Elevation_hamiliton.jpg', 'Elevation context')">
+          <div class="gallery-item" onclick="openLightbox('images/Elevation_hamiliton.jpg', 'Elevation and terrain')">
             <img src="images/Elevation_hamiliton.jpg" alt="Elevation">
-            <div class="gallery-caption">Elevation<span class="sub">Terrain context for Hamilton County</span></div>
+            <div class="gallery-caption">Elevation<span class="sub">USGS 3DEP, up to 980 ft</span></div>
           </div>
-          <div class="gallery-item" onclick="openLightbox('images/Ham_Road.jpg', 'Road network exposure')">
-            <img src="images/Ham_Road.jpg" alt="Road network">
-            <div class="gallery-caption">Road exposure<span class="sub">Network access during flood event</span></div>
+          <div class="gallery-item" onclick="openLightbox('images/Ham_Road.jpg', 'Transportation and utility infrastructure')">
+            <img src="images/Ham_Road.jpg" alt="Transportation and utility infrastructure">
+            <div class="gallery-caption">Transportation and utility<span class="sub">Roads, rail, airports, power</span></div>
           </div>
-          <div class="gallery-item" onclick="openLightbox('images/SVI_Full_Flood.jpg', 'Full SVI and flood overlay')">
-            <img src="images/SVI_Full_Flood.jpg" alt="SVI and flood overlay">
-            <div class="gallery-caption">SVI × Flood composite<span class="sub">Full social vulnerability overlay</span></div>
+          <div class="gallery-item" onclick="openLightbox('images/SVI_Full_Flood.jpg', 'CDC Social Vulnerability Index')">
+            <img src="images/SVI_Full_Flood.jpg" alt="CDC Social Vulnerability Index">
+            <div class="gallery-caption">Social vulnerability<span class="sub">CDC SVI 2022 by census tract</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section 2.2: Substantially damaged buildings by return period -->
+      <div class="subsection">
+        <div class="subsection-header">
+          <span class="subsection-num">2.2</span>
+          <span class="subsection-title">Substantially damaged buildings by return period</span>
+        </div>
+        <p class="subsection-desc">FEMA defines substantial damage as repair cost equal to or exceeding 50% of pre-damage market value. The count climbs from 4 buildings in the 10-year scenario to 20 in the 500-year scenario, concentrated along the White River corridor near Noblesville and along Fall Creek.</p>
+        <div class="gallery cols-5">
+          <div class="gallery-item" onclick="openLightbox('images/B10.jpg', '10-year substantially damaged buildings')">
+            <img src="images/B10.jpg" alt="10-year substantially damaged buildings">
+            <div class="gallery-caption">10-year<span class="sub">4 buildings</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/B25.jpg', '25-year substantially damaged buildings')">
+            <img src="images/B25.jpg" alt="25-year substantially damaged buildings">
+            <div class="gallery-caption">25-year<span class="sub">5 buildings</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/B50.jpg', '50-year substantially damaged buildings')">
+            <img src="images/B50.jpg" alt="50-year substantially damaged buildings">
+            <div class="gallery-caption">50-year<span class="sub">11 buildings</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/B100.jpg', '100-year substantially damaged buildings')">
+            <img src="images/B100.jpg" alt="100-year substantially damaged buildings">
+            <div class="gallery-caption">100-year<span class="sub">14 buildings</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/B500.jpg', '500-year substantially damaged buildings')">
+            <img src="images/B500.jpg" alt="500-year substantially damaged buildings">
+            <div class="gallery-caption">500-year<span class="sub">20 buildings</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-section 2.3: Economic loss by return period -->
+      <div class="subsection">
+        <div class="subsection-header">
+          <span class="subsection-num">2.3</span>
+          <span class="subsection-title">Total economic loss by return period</span>
+        </div>
+        <p class="subsection-desc">Economic loss across all five return periods, plus the Average Annualized Loss summary. All maps share the same classification breaks so they can be read directly against each other. AAL of $20.45 million represents the county's long-term expected yearly cost expressed as a single figure.</p>
+        <div class="gallery cols-5" style="margin-bottom: 20px;">
+          <div class="gallery-item" onclick="openLightbox('images/AAL.jpg', 'Average Annualized Loss')">
+            <img src="images/AAL.jpg" alt="Average Annualized Loss">
+            <div class="gallery-caption">AAL<span class="sub">$20.45M per year</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/E10.jpg', '10-year economic loss')">
+            <img src="images/E10.jpg" alt="10-year economic loss">
+            <div class="gallery-caption">10-year<span class="sub">$163.11M</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/E25.jpg', '25-year economic loss')">
+            <img src="images/E25.jpg" alt="25-year economic loss">
+            <div class="gallery-caption">25-year<span class="sub">$198.02M</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/E50.jpg', '50-year economic loss')">
+            <img src="images/E50.jpg" alt="50-year economic loss">
+            <div class="gallery-caption">50-year<span class="sub">$232.56M</span></div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('images/E100.jpg', '100-year economic loss')">
+            <img src="images/E100.jpg" alt="100-year economic loss">
+            <div class="gallery-caption">100-year<span class="sub">$282.14M</span></div>
+          </div>
+        </div>
+        <div class="gallery cols-5">
+          <div class="gallery-item" onclick="openLightbox('images/E500.jpg', '500-year economic loss')">
+            <img src="images/E500.jpg" alt="500-year economic loss">
+            <div class="gallery-caption">500-year<span class="sub">$343.74M</span></div>
           </div>
         </div>
       </div>
@@ -875,7 +887,7 @@
       <div class="workflow-step">
         <div class="workflow-step-num">02 / PROCESS</div>
         <h3>Processing</h3>
-        <p>Data are pulled, cleaned, and joined using Python (pandas, geopandas, arcpy) and SQL. For Hazus-based maps, the SQL Server backend is queried directly to extract damage and loss tables, which are then joined to spatial layers in ArcGIS Pro.</p>
+        <p>For the Hazus-based studies, the study area was defined at the county level and the analysis run with default building inventory and economic loss settings. Output layers were exported and brought into ArcGIS Pro for cartographic finishing. Where cross-scenario comparison was needed, the highest-magnitude scenario was symbolized first to fix consistent classification breakpoints across the series.</p>
       </div>
 
       <div class="workflow-step">
